@@ -740,15 +740,25 @@ function createVisualisation(data) {
     });
 
     cards.enter()
-        .append("rect")
-        .attr("x", function(d) { return (d.monthnum * cardWidth) + (cardWidth * 2); })
-        .attr("y", function(d) { return (d.categorynum * cardHeight) + (cardHeight); })
+        .append("g")
         .attr("class", function(d) {
             return d.type + ' card cat-' + d.categorynum
         })
-        .attr("width", cardWidth)
-        .attr("height", cardHeight)
-        .style("opacity", function(d) { return (d.percentile / 100)})
+        .call(function(parent){
+            parent.append("rect")
+                .attr("x", function(d) { return (d.monthnum * cardWidth) + (cardWidth * 2); })
+                .attr("y", function(d) { return (d.categorynum * cardHeight) + (cardHeight); })
+                .attr("width", cardWidth)
+                .attr("height", cardHeight)
+                .attr("class", "block")
+                .style("opacity", function(d) { return (d.percentile / 100)})
+            parent.append("text")
+                .text(function(d){ return Math.round(d.percentile) + "%"; })
+                .attr("class", "percentile")
+                .attr("x", function(d) { return (d.monthnum * cardWidth) + (cardWidth * 2.5); })
+                .attr("y", function(d) { return (d.categorynum * cardHeight) + (cardHeight); })
+        });
+
 
     // Create the y axis
     var categoryNames = [];
@@ -917,8 +927,12 @@ function changeStates(state, canvas, cards, axis) {
         // Loop through cards
         _.map(cards, function (el) {
 
+            var block = el.querySelectorAll('.block')[0],
+                percentile = el.querySelectorAll('.percentile')[0];
+
             // Hide all elements by default
-            el.setAttribute("y", -cardHeight);
+            block.setAttribute("y", -cardHeight);
+            percentile.setAttribute("y", -cardHeight);
 
             // Loops through [subcategories] if element is part of the main category
             Array.prototype.forEach.call(totalCategories, function(c, i){
@@ -928,7 +942,12 @@ function changeStates(state, canvas, cards, axis) {
 
                 // If it contains the correct class, move it into view
                 if (el.classList.contains(c)) {
-                    el.setAttribute("y", ((position * cardHeight) + cardHeight));
+
+                    var block = el.querySelectorAll('.block')[0],
+                        percentile = el.querySelectorAll('.percentile')[0];
+
+                    block.setAttribute("y", ((position * cardHeight) + cardHeight));
+                    percentile.setAttribute("y", ((position * cardHeight) + cardHeight *1.5));
                 }
 
             });
