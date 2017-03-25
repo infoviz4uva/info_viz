@@ -59,13 +59,13 @@
 }
 
 .heatmap .block {
+    cursor: pointer;
     fill: #59CD90;
     transition: fill 1s ease;
 }
 
 .heatmap .category .block {
     fill: #009688;
-    cursor: pointer;
 }
 
 .heatmap .subcategory .block{
