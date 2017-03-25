@@ -842,52 +842,52 @@ function changeStates(state, canvas, cards, axis) {
 
         switch (canvas.id) {
             case 'cat-all':
-                repositionVisuals(categories);
+                repositionVisuals('null', categories);
                 break
             case categories[0]:
-                repositionVisuals(['cat-0', 'cat-1', 'cat-2', 'cat-3', 'cat-4', 'cat-5', 'cat-6', 'cat-7', 'cat-8', 'cat-9', 'cat-10', 'cat-11', 'cat-12']);
+                repositionVisuals(categories[0], ['cat-0', 'cat-1', 'cat-2', 'cat-3', 'cat-4', 'cat-5', 'cat-6', 'cat-7', 'cat-8', 'cat-9', 'cat-10', 'cat-11', 'cat-12']);
                 break
             case categories[1]:
-                repositionVisuals(['cat-13', 'cat-14', 'cat-15', 'cat-16', 'cat-17', 'cat-18']);
+                repositionVisuals(categories[1], ['cat-13', 'cat-14', 'cat-15', 'cat-16', 'cat-17', 'cat-18']);
                 break
             case categories[2]:
-                repositionVisuals(['cat-19', 'cat-20', 'cat-21', 'cat-22', 'cat-23']);
+                repositionVisuals(categories[2], ['cat-19', 'cat-20', 'cat-21', 'cat-22', 'cat-23']);
                 break
             case categories[3]:
-                repositionVisuals(['cat-24', 'cat-25', 'cat-26', 'cat-27', 'cat-28', 'cat-29', 'cat-30']);
+                repositionVisuals(categories[3], ['cat-24', 'cat-25', 'cat-26', 'cat-27', 'cat-28', 'cat-29', 'cat-30']);
                 break
             case categories[4]:
-                repositionVisuals(['cat-31', 'cat-32', 'cat-33', 'cat-34', 'cat-35', 'cat-36', 'cat-37', 'cat-38', 'cat-39']);
+                repositionVisuals(categories[4], ['cat-31', 'cat-32', 'cat-33', 'cat-34', 'cat-35', 'cat-36', 'cat-37', 'cat-38', 'cat-39']);
                 break
             case categories[5]:
-                repositionVisuals(['cat-40', 'cat-41', 'cat-42', 'cat-43', 'cat-44', 'cat-45', 'cat-46', 'cat-47', 'cat-48', 'cat-49', 'cat-50', 'cat-51', 'cat-52']);
+                repositionVisuals(categories[5], ['cat-40', 'cat-41', 'cat-42', 'cat-43', 'cat-44', 'cat-45', 'cat-46', 'cat-47', 'cat-48', 'cat-49', 'cat-50', 'cat-51', 'cat-52']);
                 break
             case categories[6]:
-                repositionVisuals(['cat-53', 'cat-54', 'cat-55', 'cat-56', 'cat-57', 'cat-58', 'cat-59', 'cat-60', 'cat-61', 'cat-62', 'cat-63', 'cat-64', 'cat-65', 'cat-66', 'cat-67', 'cat-68', 'cat-69', 'cat-70', 'cat-71', 'cat-72']);
+                repositionVisuals(categories[6], ['cat-53', 'cat-54', 'cat-55', 'cat-56', 'cat-57', 'cat-58', 'cat-59', 'cat-60', 'cat-61', 'cat-62', 'cat-63', 'cat-64', 'cat-65', 'cat-66', 'cat-67', 'cat-68', 'cat-69', 'cat-70', 'cat-71', 'cat-72']);
                 break
             case categories[7]:
-                repositionVisuals(['cat-73', 'cat-74', 'cat-75', 'cat-76', 'cat-77', 'cat-78', 'cat-79', 'cat-80']);
+                repositionVisuals(categories[7], ['cat-73', 'cat-74', 'cat-75', 'cat-76', 'cat-77', 'cat-78', 'cat-79', 'cat-80']);
                 break
             case categories[8]:
-                repositionVisuals(['cat-81', 'cat-82', 'cat-83', 'cat-84', 'cat-85', 'cat-86']);
+                repositionVisuals(categories[8], ['cat-81', 'cat-82', 'cat-83', 'cat-84', 'cat-85', 'cat-86']);
                 break
             case categories[9]:
-                repositionVisuals(['cat-87', 'cat-88', 'cat-89', 'cat-90', 'cat-91', 'cat-92', 'cat-93', 'cat-94', 'cat-95', 'cat-96', 'cat-97', 'cat-98', 'cat-99', 'cat-100', 'cat-101', 'cat-102', 'cat-103', 'cat-104']);
+                repositionVisuals(categories[9], ['cat-87', 'cat-88', 'cat-89', 'cat-90', 'cat-91', 'cat-92', 'cat-93', 'cat-94', 'cat-95', 'cat-96', 'cat-97', 'cat-98', 'cat-99', 'cat-100', 'cat-101', 'cat-102', 'cat-103', 'cat-104']);
                 break
             case categories[10]:
-                repositionVisuals(['cat-105', 'cat-106', 'cat-107', 'cat-108', 'cat-109', 'cat-110', 'cat-111']);
+                repositionVisuals(categories[10], ['cat-105', 'cat-106', 'cat-107', 'cat-108', 'cat-109', 'cat-110', 'cat-111']);
                 break
             case categories[11]:
-                repositionVisuals(['cat-112', 'cat-113', 'cat-114', 'cat-115', 'cat-116', 'cat-117', 'cat-118', 'cat-119', 'cat-120', 'cat-121', 'cat-122', 'cat-123', 'cat-124', 'cat-125', 'cat-126', 'cat-127']);
+                repositionVisuals(categories[11], ['cat-112', 'cat-113', 'cat-114', 'cat-115', 'cat-116', 'cat-117', 'cat-118', 'cat-119', 'cat-120', 'cat-121', 'cat-122', 'cat-123', 'cat-124', 'cat-125', 'cat-126', 'cat-127']);
                 break
             case categories[12]:
-                repositionVisuals(['cat-128', 'cat-129', 'cat-130', 'cat-131', 'cat-132', 'cat-133', 'cat-134']);
+                repositionVisuals(categories[12], ['cat-128', 'cat-129', 'cat-130', 'cat-131', 'cat-132', 'cat-133', 'cat-134']);
                 break
             case categories[13]:
-                repositionVisuals(['cat-135', 'cat-136', 'cat-137', 'cat-138', 'cat-139', 'cat-140', 'cat-141', 'cat-142', 'cat-143', 'cat-144', 'cat-145', 'cat-146', 'cat-147', 'cat-148', 'cat-149', 'cat-150']);
+                repositionVisuals(categories[13], ['cat-135', 'cat-136', 'cat-137', 'cat-138', 'cat-139', 'cat-140', 'cat-141', 'cat-142', 'cat-143', 'cat-144', 'cat-145', 'cat-146', 'cat-147', 'cat-148', 'cat-149', 'cat-150']);
                 break
             case categories[14]:
-                repositionVisuals(['cat-151', 'cat-152', 'cat-153', 'cat-154', 'cat-155', 'cat-156', 'cat-157', 'cat-158', 'cat-159', 'cat-160', 'cat-161', 'cat-162', 'cat-163', 'cat-164', 'cat-165']);
+                repositionVisuals(categories[14], ['cat-151', 'cat-152', 'cat-153', 'cat-154', 'cat-155', 'cat-156', 'cat-157', 'cat-158', 'cat-159', 'cat-160', 'cat-161', 'cat-162', 'cat-163', 'cat-164', 'cat-165']);
                 break
             default:
                 cat.setAttribute("y", cardHeight * -2); // Hides blocks when they aren't in the category
@@ -898,13 +898,21 @@ function changeStates(state, canvas, cards, axis) {
     filterSubcategories();
 
     // Moves the svg data elements
-    function repositionVisuals(subcategories) {
+    function repositionVisuals(categoryid, subcategories) {
 
-        // Merge categories & subcategories
-        // TODO: Need to somehow order these so subcategories are renedered inbetween the categories
-        // instead of at the end
-        var totalCategories = d3.merge([categories, subcategories]),
-            totalCategories = _.uniqBy(totalCategories);
+        if (categoryid === 'null') {
+
+            var totalCategories = d3.merge([categories, subcategories]),
+                totalCategories = _.uniqBy(totalCategories);
+
+        } else {
+
+            var indexToSplit = categories.indexOf(categoryid);
+            var first = categories.slice(0, indexToSplit);
+            var second = categories.slice(indexToSplit + 1);
+
+            var totalCategories = first.concat(subcategories).concat(second);
+        }
 
         // Loop through cards
         _.map(cards, function (el) {
