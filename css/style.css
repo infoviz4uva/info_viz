@@ -48,6 +48,7 @@
     font-weight: bold;
     pointer-events: none;
     transition: all 0.4s ease-in-out;
+    user-select: none;
 }
 .heatmap .block:hover {
     fill: #FF5252 !important;
@@ -60,12 +61,31 @@
 
 .heatmap .block {
     cursor: pointer;
-    fill: #59CD90;
     transition: fill 1s ease;
 }
 
-.heatmap .category .block {
+.heatmap .subcategory .block,
+.heatmap .legend .subcategory {
+    fill: #59CD90;
+}
+
+.heatmap .category .block,
+.heatmap .legend .category {
     fill: #009688;
+}
+
+.heatmap .legend .percentile {
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+}
+
+.heatmap .legend .maintitle {
+    text-anchor: start;
+}
+
+.heatmap .legend .title {
+    text-anchor: end;
 }
 
 .heatmap .subcategory .block{
