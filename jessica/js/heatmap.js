@@ -920,7 +920,22 @@ function bindEvents(cardHeight, legendHeight) {
 
     // Listen to global URL change event
     window.addEventListener('urlHandled', function (e) {
-        console.log(e.detail);
+
+        if(e.detail && e.detail) {
+
+            var category = e.detail,
+                subcategory = e.detail,
+                category = 'cat-13',
+                subcategory = 'cat-15'; ; // Delete after category has been filtered properly
+
+            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+            highlightCategory(subcategory);
+
+        } else {
+            console.log('ERROR: Category undefined');
+        }
+
+
     }, false);
 }
 
