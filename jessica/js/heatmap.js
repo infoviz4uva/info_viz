@@ -883,11 +883,11 @@ function createVisualisation(data) {
         .attr("class","axis-x");
 
     // Bind events
-    bindEvents(cardHeight, legendHeight);
+    bindEvents(cardHeight, legendHeight, monthNames);
 }
 
 // Interactions
-function bindEvents(cardHeight, legendHeight) {
+function bindEvents(cardHeight, legendHeight, monthNames) {
 
     var canvas = document.getElementsByClassName('heatmap')[0],
         cards = canvas.getElementsByClassName('card'),
@@ -924,20 +924,1309 @@ function bindEvents(cardHeight, legendHeight) {
     // Listen to global URL change event
     window.addEventListener('urlHandled', function (e) {
 
-        if(e.detail && e.detail) {
+        if(e.detail) {
 
-            var category = e.detail,
-                subcategory = e.detail,
-                category = 'cat-13',
-                subcategory = 'cat-15'; ; // Delete after category has been filtered properly
+            var category = e.detail.category,
+                subcategory = e.detail.subcategory;
 
-            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
-            highlightCategory(subcategory);
+            // Filters string to category ID to match data
+            switch(category) {
+                case 'art':
+                    switch(subcategory){
+                        case 'conceptual art':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-1';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'digital art':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-2';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'illustration':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-3';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'painting':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-4';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'performance art':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-5';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'scuplture':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-6';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'public art':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-7';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'mixed media':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-8';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'ceramics':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-9';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'installations':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-10';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'textiles':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-11';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'video art':{
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-12';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-0',
+                                subcategory   = 'cat-0';
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                    }
+                    break
+                case 'comics':
+                    switch(subcategory){
+                        case 'anthologies':{
+                            var category      = 'cat-13',
+                                subcategory   = 'cat-14';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'comic books':{
+                            var category      = 'cat-13',
+                                subcategory   = 'cat-15';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'events':{
+                            var category      = 'cat-13',
+                                subcategory   = 'cat-16';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'graphic novels':{
+                            var category      = 'cat-13',
+                                subcategory   = 'cat-17';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'webcomics':{
+                            var category      = 'cat-13',
+                                subcategory   = 'cat-18';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-13',
+                                subcategory   = 'cat-13';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'dance':
+                    switch(subcategory){
+                        case 'performances':{
+                            var category      = 'cat-19',
+                                subcategory   = 'cat-20';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'residencies':{
+                            var category      = 'cat-19',
+                                subcategory   = 'cat-21';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'spaces':{
+                            var category      = 'cat-19',
+                                subcategory   = 'cat-22';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'workshops':{
+                            var category      = 'cat-19',
+                                subcategory   = 'cat-23';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-19',
+                                subcategory   = 'cat-19';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                                console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'design':
+                    switch(subcategory){
+                        case 'graphic design':{
+                            var category      = 'cat-24',
+                                subcategory   = 'cat-25';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'product design':{
+                            var category      = 'cat-24',
+                                subcategory   = 'cat-26';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'architecture ':{
+                            var category      = 'cat-24',
+                                subcategory   = 'cat-27';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'civic design':{
+                            var category      = 'cat-24',
+                                subcategory   = 'cat-28';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'interactive design':{
+                            var category      = 'cat-24',
+                                subcategory   = 'cat-29';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'typography':{
+                            var category      = 'cat-24',
+                                subcategory   = 'cat-30';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-24',
+                                subcategory   = 'cat-24';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'fashion':
+                    switch(subcategory){
+                        case 'accessories ':{
+                            var category      = 'cat-31',
+                            subcategory   = 'cat-32';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'apparel':{
+                            var category      = 'cat-31',
+                            subcategory   = 'cat-33';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'childrenswear':{
+                            var category      = 'cat-31',
+                            subcategory   = 'cat-34';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'couture':{
+                            var category      = 'cat-31',
+                            subcategory   = 'cat-35';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'footwear':{
+                            var category      = 'cat-31',
+                            subcategory   = 'cat-36';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'jewelry':{
+                            var category      = 'cat-31',
+                            subcategory   = 'cat-37';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'pet fashion':{
+                            var category      = 'cat-31',
+                            subcategory   = 'cat-38';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'ready-to-wear':{
+                            var category      = 'cat-31',
+                            subcategory   = 'cat-39';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-31',
+                            subcategory   = 'cat-31';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'food':
+                    switch(subcategory){
+                        case 'bacon':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-41';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'community gardens':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-42';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'cookbooks':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-43';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'drinks':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-44';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'events':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-45';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'farms':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-46';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'farmer\'s markets':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-47';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'food trucks':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-48';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'restaurants':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-49';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'small batch':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-50';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'spaces':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-51';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'vegan':{
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-52';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-40',
+                                subcategory   = 'cat-40';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'film%20&%20video':
+                    switch(subcategory){
+                        case 'animation':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-54';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'documentary':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-55';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'narrative film':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-56';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'shorts':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-57';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'webseries':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-58';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'action':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-59';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'comedy':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-60';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'drama':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-61';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'experimental':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-62';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'festivals':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-63';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'fantasy':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-64';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'horror':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-65';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'movie theaters':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-66';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'music videos':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-67';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'romance':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-68';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'science fiction':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-69';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'thrillers':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-70';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case ' television':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-71';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'family':{
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-72';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-53',
+                                subcategory   = 'cat-53';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'games':
+                    switch(subcategory){
+                        case 'tabletop games ':{
+                            var category      = 'cat-73',
+                                subcategory   = 'cat-74';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'video games ':{
+                            var category      = 'cat-73',
+                                subcategory   = 'cat-75';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'gaming hardware':{
+                            var category      = 'cat-73',
+                                subcategory   = 'cat-76';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'live games':{
+                            var category      = 'cat-73',
+                                subcategory   = 'cat-77';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'mobile games':{
+                            var category      = 'cat-73',
+                                subcategory   = 'cat-78';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'playing cards':{
+                            var category      = 'cat-73',
+                                subcategory   = 'cat-79';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'puzzles':{
+                            var category      = 'cat-73',
+                                subcategory   = 'cat-80';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-73',
+                                subcategory   = 'cat-73';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'journalism':
+                    switch(subcategory){
+                        case 'audio':{
+                            var category      = 'cat-81',
+                                subcategory   = 'cat-82';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'photo':{
+                            var category      = 'cat-81',
+                                subcategory   = 'cat-83';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'print':{
+                            var category      = 'cat-81',
+                                subcategory   = 'cat-84';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'video':{
+                            var category      = 'cat-81',
+                                subcategory   = 'cat-85';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'web':{
+                            var category      = 'cat-81',
+                                subcategory   = 'cat-86';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-81',
+                                subcategory   = 'cat-81';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'music':
+                    switch(subcategory){
+                        case 'classical music':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-88';
 
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'country & folk':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-89';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'electronic music':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-90';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'hip-hop':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-91';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'indie rock':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-92';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'jazz':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-93';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'pop':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-94';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'rock':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-95';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'world music':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-96';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'metal':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-97';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'blues':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-98';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'chiptune':{
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-99';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);                            break
+                        }
+                        case 'faith':{
+                            var category      = 'cat-87',
+                            subcategory   = 'cat-100';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'kids':{
+                            var category      = 'cat-87',
+                            subcategory   = 'cat-101';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'latin':{
+                            var category      = 'cat-87',
+                            subcategory   = 'cat-012';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'punk':{
+                            var category      = 'cat-87',
+                            subcategory   = 'cat-103';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'r&b':{
+                            var category      = 'cat-87',
+                            subcategory   = 'cat-104';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-87',
+                                subcategory   = 'cat-87';
+
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'photography':
+                    switch(subcategory){
+                        case 'animals':{
+                            var category      = 'cat-105',
+                                subcategory   = 'cat-106';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'fine art':{
+                            var category      = 'cat-105',
+                                subcategory   = 'cat-107';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'nature':{
+                            var category      = 'cat-105',
+                                subcategory   = 'cat-108';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'people':{
+                            var category      = 'cat-105',
+                                subcategory   = 'cat-109';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'places ':{
+                            var category      = 'cat-105',
+                                subcategory   = 'cat-110';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'photobooks':{
+                            var category      = 'cat-105',
+                                subcategory   = 'cat-111';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-105',
+                                subcategory   = 'cat-105';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'technology':
+                    switch(subcategory){
+                        case 'software':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-113';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'hardware':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-114';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case ' 3d printing':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-115';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'apps':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-116';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'camera equipment':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-117';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'diy electronics':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-118';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'fabrication tools':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-119';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'flight':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-120';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'gadgets':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-121';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'robots':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-122';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'sound':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-123';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'space exploration':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-124';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'wearables':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-125';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'web':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-126';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'makerspaces':{
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-127';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-112',
+                                subcategory   = 'cat-112';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'theater':
+                    switch(subcategory){
+                        case 'experimental ':{
+                            var category      = 'cat-128',
+                                subcategory   = 'cat-129';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'festivals':{
+                            var category      = 'cat-128',
+                                subcategory   = 'cat-130';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'immersive':{
+                            var category      = 'cat-128',
+                                subcategory   = 'cat-131';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'musicals':{
+                            var category      = 'cat-128',
+                                subcategory   = 'cat-132';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'plays':{
+                            var category      = 'cat-128',
+                                subcategory   = 'cat-133';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'spaces':{
+                            var category      = 'cat-128',
+                                subcategory   = 'cat-134';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-128',
+                                subcategory   = 'cat-128';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'publishing':
+                    switch(subcategory){
+                        case 'art books':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-136';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'children\'s books':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-137';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'fiction':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-138';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'nonfiction':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-139';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'periodicals':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-140';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'poetry':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-141';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'radio & podcasts':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-142';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'academic':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-143';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'anthologies':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-144';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'calendars':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-145';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'literary journals':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-146';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'translations':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-147';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'young adult':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-148';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'zines':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-149';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'academic':{
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-150';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-135',
+                                subcategory   = 'cat-135';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                case 'crafts':
+                    switch(subcategory){
+                        case 'candles ':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-152';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'crochet':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-153';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'diy ':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-154';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'embroidery':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-155';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'glass ':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-156';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'knitting':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-157';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'letterpress ':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-158';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'pottery':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-159';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'printing':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-160';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'quilts':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-161';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'stationary':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-162';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'taxidermy':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-163';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'weaving':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-164';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        case 'woodworking ':{
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-165';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            break
+                        }
+                        default:
+                            var category      = 'cat-151',
+                                subcategory   = 'cat-151';
+                            changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                            highlightCategory(subcategory);
+                            console.log("ERROR: heatmap -subcategory '"+ subcategory + "' not recognized");
+                            break
+                    }
+                    break
+                default:
+                    var category      = 'cat-all',
+                        subcategory   = 'cat-all';
+                    changeStates(category, canvas, cards, axis, cardHeight, legendHeight);
+                    highlightCategory(subcategory);
+                    console.log("ERROR: heatmap -category '"+ category + "' not recognized");
+                    break
+            }
+
+            // Updates main template
+            updateTemplate(e.detail.category, e.detail.subcategory, monthNames);
         }
 
 
     }, false);
+}
+
+function updateTemplate(category, subcategory, monthNames) {
+
+    var templateSection  = document.getElementById('info-3');
+        activeCards      = document.querySelectorAll('.heatmap .card.active'),
+        yAxisLabels      = document.querySelectorAll('.heatmap .axis-x'),
+        currentMonth     = new Date().getMonth(),
+        percentiles      = [],
+        monthAverage     = 0;
+
+    _.map(activeCards, function (el) {
+        var xCoordinate = el.querySelector('rect').getAttribute('x'),
+            monthOrder  = (xCoordinate / 75) - 2;
+
+            if (monthOrder === currentMonth) {
+                monthAverage = el.dataset.percentile;
+            }
+
+        percentiles.push(parseInt(el.dataset.percentile));
+    });
+
+    // Adds up average over the year for active category
+    var totalAverage = percentiles.reduce(function(a, b) { return a + b; }, 0),
+        yearAverage  = Math.round(totalAverage / percentiles.length);
+
+
+    // Boldens month label
+    yAxisLabels[currentMonth].classList.add('active');
+
+    // Update the text
+    var infoEl   = templateSection.querySelector('.cust-info'),
+        textEl    = templateSection.querySelector('.mdl-card__supporting-text'),
+        infoCopy = '',
+        textCopy  = '';
+
+    if (monthAverage < yearAverage) {
+        infoCopy = '<span class="fail">' + (monthAverage - yearAverage).toString() + '%</span>',
+        textCopy = 'We recommend waiting for a month with a higher average success rate.';
+        textEl.classList.add('fail');
+    } else if (monthAverage === yearAverage) {
+        infoCopy = '<span>Neutral</span>',
+        textCopy = 'Now is a safe time as it is exactly average, however if you have time, we recommend waiting for a month with a higher average success rate.';
+    } else {
+        infoCopy = '<span class="success">+' + (monthAverage - yearAverage).toString() + '%</span>',
+        textCopy = 'This is a good time to launch your project.'
+        textEl.classList.add('success');
+    }
+
+    averageCopy = '<ul><li>The average for <strong>'+monthNames[currentMonth]+'</strong> is <strong>'+ monthAverage+'%</strong></li><li>The yearly average for <strong>' + subcategory + '</strong> is <strong>'+  yearAverage + '%</strong>.</li></ul>';
+
+    // Updates text
+    infoEl.innerHTML = infoCopy + averageCopy;
+    textEl.innerHTML = textCopy;
+
+    // Adds class when active
+    templateSection.classList.add('active');
+
 }
 
 function changeStates(state, canvas, cards, axis, cardHeight, legendHeight) {

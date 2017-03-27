@@ -40,7 +40,7 @@ function handleUrlRequest () {
         json = {};
         $.ajax({
             type: "GET",
-            url: $(input).val(), 
+            url: $(input).val(),
             data: input.serialize(), // serializes the form's elements.
         }).then(function (data) {
             var title, country, category, sub_category, goal;
@@ -107,7 +107,7 @@ function hideShowViz (hideShow) {
         $('.bubble_chart').hide();
     } else if (hideShow === 1) {
         $('.bubble_chart').show();
-    } 
+    }
 }
 
 // Fire functions when the page has loaded
