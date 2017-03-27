@@ -889,6 +889,7 @@ function createVisualisation(data) {
 // Interactions
 function bindEvents(cardHeight, legendHeight, monthNames) {
 
+
     var canvas = document.getElementsByClassName('heatmap')[0],
         cards = canvas.getElementsByClassName('card'),
         axis = canvas.getElementsByClassName('axis-y'),
@@ -2167,7 +2168,6 @@ function bindEvents(cardHeight, legendHeight, monthNames) {
             updateTemplate(e.detail.category, e.detail.subcategory, monthNames);
         }
 
-
     }, false);
 }
 
@@ -2195,7 +2195,6 @@ function updateTemplate(category, subcategory, monthNames) {
     var totalAverage = percentiles.reduce(function(a, b) { return a + b; }, 0),
         yearAverage  = Math.round(totalAverage / percentiles.length);
 
-
     // Boldens month label
     yAxisLabels[currentMonth].classList.add('active');
 
@@ -2208,13 +2207,25 @@ function updateTemplate(category, subcategory, monthNames) {
     if (monthAverage < yearAverage) {
         infoCopy = '<span class="fail">' + (monthAverage - yearAverage).toString() + '%</span>',
         textCopy = 'We recommend waiting for a month with a higher average success rate.';
+        if(textEl.classList.contains('success')) {
+            textEl.classList.remove('success');
+        }
         textEl.classList.add('fail');
     } else if (monthAverage === yearAverage) {
         infoCopy = '<span>Neutral</span>',
         textCopy = 'Now is a safe time as it is exactly average, however if you have time, we recommend waiting for a month with a higher average success rate.';
+        if(textEl.classList.contains('success')) {
+            textEl.classList.remove('success');
+        }
+        if (textEl.classList.contains('fail')) {
+            textEl.classList.remove('fail');
+        }
     } else {
         infoCopy = '<span class="success">+' + (monthAverage - yearAverage).toString() + '%</span>',
         textCopy = 'This is a good time to launch your project.'
+        if(textEl.classList.contains('fail')) {
+            textEl.classList.remove('fail');
+        }
         textEl.classList.add('success');
     }
 
@@ -2328,6 +2339,11 @@ function changeStates(state, canvas, cards, axis, cardHeight, legendHeight) {
 
     // Moves the svg data elements
     function repositionVisuals(categoryid, subcategories) {
+
+        if (!legendHeight) {
+            console.log('ERROR');
+            return;
+        }
 
         if (categoryid === 'cat-all') {
 
