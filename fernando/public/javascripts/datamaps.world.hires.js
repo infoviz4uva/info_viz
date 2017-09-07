@@ -28,7 +28,6 @@
         borderOpacity: 1,
         borderColor: '#FDFDFD',
         popupTemplate: function(geography, data) {
-          console.log(data, geography);
           return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
         },
         popupOnHover: true,
@@ -116,7 +115,6 @@
 
 
   function addContainer( element, height, width ) {
-    d3.select(".datamap").remove();
     this.svg = d3.select( element ).append('svg')
       .attr('width', width || element.offsetWidth)
       .attr('data-width', width || element.offsetWidth)

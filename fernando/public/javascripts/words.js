@@ -47,7 +47,7 @@ function words_maps(country,tex){
           .style("opacity",0)
           .remove()
            setTimeout(function(){
-                maps(tex)
+                maps(text)
               },800);
           
           })

@@ -2252,7 +2252,7 @@ function updateTemplate(category, subcategory, monthNames) {
         textEl.classList.add('success');
     }
 
-    window.monthScore = (((monthAverage - yearAverage) / 2) + 50) / 2;
+    window.monthScore = (((monthAverage - yearAverage) / 2) + 50) / 4;
 
     infoCopy = "<span>"+recommendedMonths+"</span>";
 

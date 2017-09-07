@@ -1,10 +1,8 @@
 
 function maps(project){
-
-    d3.select('#zoomed-hr').remove();
   console.log(project);
 
-    text =  project;
+    text =  project ;
         d3.json("../data/success_europe_filtered_changedID.json",function(data){
             var list_values = [];
             var countries = {};
@@ -12,7 +10,7 @@ function maps(project){
 
 
            data['data'].forEach(function(element) {
-                if (text && element['category']['name'].toLowerCase() === text.toLowerCase()){
+                if (element['category']['name'] === text){
                     countries[element['location']['country']] = (countries[element['location']['country']] || 0) + 1;
                     };
              });
@@ -45,7 +43,7 @@ function maps(project){
               
 
 
-var dataset3 = {};
+var dataset3 ={};
 d3.json("../data/trends.txt",function(data2){
   data2.forEach(function(element2){
     if (countries[element2[0]]){
@@ -68,7 +66,6 @@ d3.json("../data/trends.txt",function(data2){
           geographyConfig: {
             borderColor: '#FDFDFD',
             popupTemplate: function(geography, data) {
-              console.log(data);
               return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong>' 
               + " <br> Search interest : " +'<strong>'+ data.numberOfThings+ '</strong>'+ '<br>' 
               + 'Number of successful projects  :' + data.projects + '</div>' ;

@@ -301,10 +301,7 @@ function handleUrlRequest () {
                 
             }
         }).then(function () {
-
-
-
-            maps(json.sub_category);
+            maps(json.category);
             $.ajax({
                 url: '/',
                 data: JSON.stringify([[json.category], json.title]),

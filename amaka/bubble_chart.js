@@ -248,9 +248,9 @@ function handleBubbleData (datas) {
         var obj = {};
         var ob = {};
         var category = json.category;
-        var sub_category = json.sub_category;
+        var sub_category = json.sub_category
 
-        if (data[i].category && category && data[i].category.name.toLowerCase() === category.toLowerCase() ||
+        if (data[i].category && data[i].category.name.toLowerCase() === category.toLowerCase() ||
           (sub_category && data[i].category.name.toLowerCase() === sub_category.toLowerCase())) {
           var date = new Date(1000*data[i].launched_at);
           var month = format(date);
@@ -375,7 +375,7 @@ function handleBubbleData (datas) {
           $('.goal-range span').html(sortable[0][0]);
         }
 
-        statPerc = totalPledged/totalGoals * 50;
+        statPerc = totalPledged/totalGoals * 25;
         
         window.averageScore = statPerc;
         /* D3 Bubble Chart */

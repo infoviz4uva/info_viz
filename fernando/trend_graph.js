@@ -27,7 +27,7 @@ var line = d3v4.line()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.value); });
 
-d3v4.tsv("../data/over.txt", type, function(error, data) {
+d3v4.tsv("../data/file1.txt", type, function(error, data) {
   if (error) throw error;
 
 
